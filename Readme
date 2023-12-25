@@ -1,4 +1,4 @@
-
+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
 
 #https://dbdiagram.io/d to create table
 
@@ -31,3 +31,38 @@ go get github.com/dgrijalva/jwt-go
 
 #paseto
 go get -u github.com/o1egl/paseto
+
+# docker related things
+
+# To build docker from root
+docker build -t simplebank:latest .
+
+docker network create bank-network
+docker network inspect bank-network
+
+# add postgre12 container to bank-network
+docker network connect bank-network postgres12
+docker container inspect postgre12
+
+# to remove image 
+docker rmi <image name>
+
+# to remove container
+docker rm <container id or name>
+
+# to remove everything
+docker system prune -a
+
+docker image ls 
+dockr images
+
+# To list running containers
+docker ps
+
+# To list all containers
+docker ps -a
+
+# To run simplebank container in bank-network network so it can communicate with postgre12
+# by name
+ docker run --name simplebank --network bank-network -p 8080:8080 -e GIN_MODE=release -
+e DB_SOURCE=postgresql://root:secret@postgres12:5432/simple_bank?sslmode=disable simplebank:latest
