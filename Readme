@@ -1,4 +1,5 @@
-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
+# to create ssh key
+ssh-keygen -t ed25519 -C "sushmitha20v@gmail.com"
 
 #https://dbdiagram.io/d to create table
 
@@ -24,6 +25,7 @@ mockgen -destination db/mock/store.go simplebank/db/sqlc Store //to create mock 
 # unit test for delete account
 # unit test for transfer
 # unit test for jwt failing
+# jwt test failing
 
 # token
 go get github.com/google/uuid
