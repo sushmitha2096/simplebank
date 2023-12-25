@@ -1,0 +1,33 @@
+
+
+#https://dbdiagram.io/d to create table
+
+#migrate db
+ migrate create -ext sql -dir db/migration -seq add_users
+
+#We need to add this else db wont listen
+_ "github.com/lib/pq"
+
+go get -u github.com/gin-gonic/gin
+
+go get github.com/spf13/viper
+
+go install github.com/golang/mock/mockgen@v1.6.0
+
+mockgen -destination db/mock/store.go simplebank/db/sqlc Store //to create mock file
+
+# update account api
+# delete account api
+# unit test for create account
+# unit test for list account
+# unit test for update account
+# unit test for delete account
+# unit test for transfer
+# unit test for jwt failing
+
+# token
+go get github.com/google/uuid
+go get github.com/dgrijalva/jwt-go
+
+#paseto
+go get -u github.com/o1egl/paseto
